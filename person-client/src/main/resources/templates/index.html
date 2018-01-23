@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>OAuth2 SSO Demo</title>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.3/css/uikit.gradient.min.css" />
+</head>
+
+<body>
+
+	<div class="uk-grid">
+		<div class="uk-width-1-5"></div>
+		<div class="uk-width-3-5">
+			<h1>Demo</h1>
+			<p>
+				Logged in as: <span th:text="${#httpServletRequest.remoteUser}">demo</span>
+			</p>
+			<form action="#" th:action="@{/}" th:object="${person}" method="post">
+				<table>
+					<tr>
+						<td>Name:</td>
+						<td><input type="text" th:field="*{name}" /></td>
+					</tr>
+					<tr>
+						<td>Email:</td>
+						<td><input type="text" th:field="*{email}" /></td>
+					</tr>
+					<tr>
+						<td><button type="submit">Add Person</button></td>
+					</tr>
+				</table>
+			</form>
+
+			<h2>People</h2>
+			<div class="uk-panel uk-panel-box" th:each="person : ${persons}">
+				<h3 class="uk-panel-title">
+					<span th:text="${person.name}"></span>
+				</h3>
+				<span th:text="${person.email}"></span>
+			</div>
+		</div>
+		<div class="uk-width-1-5"></div>
+	</div>
+</body>
+</html>

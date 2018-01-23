@@ -1,0 +1,25 @@
+server:
+  port: 8080
+security:
+  basic:
+    enabled: false
+  oauth2:
+    client:
+      client-id: 442232877754-1g92kfj0d253sjk1haaqcoka54bdr6ha.apps.googleusercontent.com
+      client-secret: SnZOrsnIHaLdZppmtKtLllvL
+      access-token-uri: https://www.googleapis.com/oauth2/v4/token
+      user-authorization-uri: https://accounts.google.com/o/oauth2/auth
+      scope: profile,email
+    resource:
+      user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
+logging:
+  level:
+    org.springframework.security: DEBUG
+spring:
+  jackson:
+    date-format: com.fasterxml.jackson.databind.util.ISO8601DateFormat
+  application:
+    name: person-client
+management:
+  security:
+      enabled: false
